@@ -24,14 +24,14 @@ exports.saveThing = function (thing) {
   return exports.getThings().then((things) => {
     const ids = things
       .slice()
-      .map((item) => +item.id)
+      .map(item => item.id)
       .sort((a, b) => a - b);
     let id;
-    if (thing.id && !ids.includes(+thing.id)) {
+    if (thing.id && !ids.includes(thing.id)) {
       id = thing.id + "";
     } else {
       if (ids.length > 0) {
-        id = ids[ids.length - 1] + 1 + "";
+        id = ids[ids.length - 1] + "1";
       } else {
         id = "1";
       }
